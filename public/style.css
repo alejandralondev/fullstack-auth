@@ -1,0 +1,91 @@
+/* Apply a reset to remove default margin and padding */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a box-sizing border-box to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body for a clean background */
+body {
+  font-family: 'Helvetica', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Container for the login/signup forms */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style the form with iOS-like card appearance */
+.col-sm-6 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style h1 with iOS-like header */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #007bff; /* iOS blue color */
+}
+
+/* Style form-group for consistent spacing */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style input and button with iOS-like appearance */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Style the alert with iOS-like appearance */
+.alert {
+  background-color: #dc3545; /* iOS-like red color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+/* Style button with iOS-like appearance */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff; /* iOS blue color */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Style the signup button with iOS-like green color */
+.btn-warning {
+  background-color: rgb(174, 45, 94); /* iOS-like green color */
+}
+
+/* Add a hover effect to buttons */
+.btn:hover,
+.btn-warning:hover {
+  background-color: #0056b3; /* Darker shade of iOS blue on hover */
+}

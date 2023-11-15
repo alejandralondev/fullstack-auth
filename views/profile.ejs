@@ -1,0 +1,85 @@
+<!-- //MY APP: Job Application Tracker
+// Create (post) - Make something: collection(jobs): company , position, appliedDate, interviewDate, notes
+// Read (get) - Get Something: ??
+// Update (put) - Change something: application status (applied / in-progress / completed )
+// Delete (delete) - Remove something: delete job -->
+
+<!-- this page is where the jobs will be added by user -->
+
+<!doctype html>
+<html>
+<head>
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-briefcase"></span>Job Application Tracker</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <h3>Your Job Applications</h3>
+          <ul class="jobs">
+          <% for(var i=0; i<jobs.length; i++) {%>
+            <li class="job">
+              <strong>Company:</strong> <%= jobs[i].company %><br>
+              <strong>Position:</strong> <%= jobs[i].position %><br>
+              <strong>Applied Date:</strong> <%= jobs[i].appliedDate %><br>
+              <strong>Status:</strong>
+
+              <!-- drop down selection for job status -->
+              <!-- debugged with gbt -->
+              <form action="/jobs/status/<%= jobs[i]._id %>" method="POST" >
+                <input type="hidden" name="_method" value="PUT"> <!-- Use a hidden field to mimic PUT -->
+                <select name="status" onchange="this.form.submit()">
+                  <option value="applied" <%= jobs[i].status === 'applied' ? 'selected' : '' %>>Applied</option>
+                  <option value="in-progress" <%= jobs[i].status === 'in-progress' ? 'selected' : '' %>>In Progress</option>
+                  <option value="completed" <%= jobs[i].status === 'completed' ? 'selected' : '' %>>Completed</option>
+                </select>
+              </form>
+              <strong>Notes:</strong> <%= jobs[i].notes %><br>
+              <span class="delete-job" data-jobid="<%= jobs[i]._id %>">
+                <i class="fa fa-trash-o" aria-hidden="true" data-id="<%= jobs[i]._id %>"></i>
+            </span>
+            </li>
+          <% } %>
+          </ul>
+
+          <h2>Add Application</h2>
+          <% if (user.local.email) { %>
+          <form action="/jobs" method="POST">
+            <div>
+                <label for="company">Company:</label>
+                <input type="text" name="company" required>
+            </div>
+            <div>
+                <label for="position">Position:</label>
+                <input type="text" name="position" required>
+            </div>
+            <div>
+                <label for="appliedDate">Applied Date:</label>
+                <input type="date" name="appliedDate" required>
+            </div>
+            <div>
+                <label for="notes">Notes:</label>
+                <textarea name="notes" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <% } %>
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
