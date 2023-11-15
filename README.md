@@ -14,7 +14,6 @@ This app was developed so users can keep track of job applications.
 ## Credit
 
 Modified from Scotch.io's auth tutorial
-# fullstack-auth
 
 # Features
 Add Job Applications: Users can add new job applications by providing details such as the company name, position, application date, and notes.
